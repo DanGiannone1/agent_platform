@@ -5,7 +5,15 @@ from cosmos_db import CosmosDBManager
 import humps  # This should be installed via pip install pyhumps
 
 app = Flask(__name__)
-CORS(app)
+# Configure CORS with specific options
+CORS(app, resources={
+    r"/*": {
+        "origins": ["http://localhost:5173", "myurl.com"],  # Add your frontend URL here
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    }
+})
 
 cosmos_db = CosmosDBManager()
 
@@ -32,7 +40,7 @@ def after_request(response):
 
 @app.route('/available_agents', methods=['GET'])
 def get_available_agents():
-    query = "SELECT c.id, c.name FROM c WHERE c.type = 'agent'"
+    query = "SELECT c.id, c.name, c.description FROM c WHERE c.type = 'agent'"
     agents = cosmos_db.query_items(query)
     return jsonify(agents)
 

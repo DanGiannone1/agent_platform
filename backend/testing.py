@@ -10,25 +10,25 @@ def populate_test_data():
     # Create some test agents
     agents = [
         {
-            'id': 'agent1',
-            'name': 'Data Processing Agent',
+            'id': '1',
+            'name': 'Data Intelligence Agent',
             'type': 'agent',
-            'description': 'Processes data files and generates reports',
-            'partition_key': 'agent1'
+            'description': 'Answers questions about your data',
+            'partitionKey': 'agent_metadata'
         },
         {
-            'id': 'agent2',
-            'name': 'Image Analysis Agent',
+            'id': '2',
+            'name': 'Document Processing Agent',
             'type': 'agent',
-            'description': 'Analyzes images using computer vision',
-            'partition_key': 'agent2'
+            'description': 'Processes unstructured documents, extracts information, and loads it into structured data stores',
+            'partitionKey': 'agent_metadata'
         },
         {
-            'id': 'agent3',
-            'name': 'Text Classification Agent',
+            'id': '3',
+            'name': 'Flora Agent',
             'type': 'agent',
-            'description': 'Classifies text using ML models',
-            'partition_key': 'agent3'
+            'description': 'Reviews your list of trees/plants/shrubs and provides care instructions and best practices depending on the time of year & your location.',
+            'partitionKey': 'agent_metadata'
         }
     ]
     
